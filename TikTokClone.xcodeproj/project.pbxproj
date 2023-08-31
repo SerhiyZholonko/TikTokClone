@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180E21BC2AA06AA000B68F3C /* SegmentedProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21BB2AA06AA000B68F3C /* SegmentedProgressView.swift */; };
+		180E21BE2AA0941000B68F3C /* PreviewCapturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21BD2AA0941000B68F3C /* PreviewCapturedViewController.swift */; };
+		180E21C02AA0AA4A00B68F3C /* VideoCompositionWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21BF2AA0AA4A00B68F3C /* VideoCompositionWriter.swift */; };
+		180E21C22AA0B94600B68F3C /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21C12AA0B94600B68F3C /* SharePostViewController.swift */; };
+		180E21C42AA0E81800B68F3C /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21C32AA0E81800B68F3C /* PostApi.swift */; };
+		183903C92A9F76C1008B540F /* VideoClips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183903C82A9F76C1008B540F /* VideoClips.swift */; };
 		185185B02A9DE23E008A39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185185AF2A9DE23E008A39CD /* AppDelegate.swift */; };
 		185185B22A9DE23E008A39CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185185B12A9DE23E008A39CD /* SceneDelegate.swift */; };
 		185185B42A9DE23E008A39CD /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185185B32A9DE23E008A39CD /* StartViewController.swift */; };
@@ -32,6 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180E21BB2AA06AA000B68F3C /* SegmentedProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedProgressView.swift; sourceTree = "<group>"; };
+		180E21BD2AA0941000B68F3C /* PreviewCapturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCapturedViewController.swift; sourceTree = "<group>"; };
+		180E21BF2AA0AA4A00B68F3C /* VideoCompositionWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCompositionWriter.swift; sourceTree = "<group>"; };
+		180E21C12AA0B94600B68F3C /* SharePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePostViewController.swift; sourceTree = "<group>"; };
+		180E21C32AA0E81800B68F3C /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
+		183903C82A9F76C1008B540F /* VideoClips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClips.swift; sourceTree = "<group>"; };
 		185185AC2A9DE23E008A39CD /* TikTokClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTokClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185185AF2A9DE23E008A39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		185185B12A9DE23E008A39CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +81,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180E21BA2AA06A7600B68F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				180E21BB2AA06AA000B68F3C /* SegmentedProgressView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		183903C72A9F76AA008B540F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				183903C82A9F76C1008B540F /* VideoClips.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		185185A32A9DE23E008A39CD = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +116,8 @@
 		185185AE2A9DE23E008A39CD /* TikTokClone */ = {
 			isa = PBXGroup;
 			children = (
+				180E21BA2AA06A7600B68F3C /* Views */,
+				183903C72A9F76AA008B540F /* Models */,
 				185185E22A9E4E01008A39CD /* Services */,
 				185185C52A9E012E008A39CD /* Controllers */,
 				185185C62A9E013E008A39CD /* Storybourd */,
@@ -131,6 +161,7 @@
 			children = (
 				185185DE2A9E385C008A39CD /* Api.swift */,
 				185185E02A9E388F008A39CD /* UserApi.swift */,
+				180E21C32AA0E81800B68F3C /* PostApi.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -156,6 +187,7 @@
 		185185E62A9E5506008A39CD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				180E21BF2AA0AA4A00B68F3C /* VideoCompositionWriter.swift */,
 				185185E72A9E5517008A39CD /* Ref.swift */,
 			);
 			path = Helpers;
@@ -193,6 +225,8 @@
 			children = (
 				18A01FDB2A9F13F40026EA27 /* ProfileViewController.swift */,
 				18A01FDD2A9F26610026EA27 /* CreatePostViewController.swift */,
+				180E21BD2AA0941000B68F3C /* PreviewCapturedViewController.swift */,
+				180E21C12AA0B94600B68F3C /* SharePostViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -282,17 +316,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180E21C22AA0B94600B68F3C /* SharePostViewController.swift in Sources */,
 				185185B42A9DE23E008A39CD /* StartViewController.swift in Sources */,
+				183903C92A9F76C1008B540F /* VideoClips.swift in Sources */,
 				185185DF2A9E385C008A39CD /* Api.swift in Sources */,
 				18A01FDC2A9F13F40026EA27 /* ProfileViewController.swift in Sources */,
 				185185E12A9E388F008A39CD /* UserApi.swift in Sources */,
+				180E21BE2AA0941000B68F3C /* PreviewCapturedViewController.swift in Sources */,
 				185185C92A9E0437008A39CD /* SignInViewController.swift in Sources */,
 				185185B02A9DE23E008A39CD /* AppDelegate.swift in Sources */,
 				185185E42A9E4E2C008A39CD /* StorageService.swift in Sources */,
 				18A01FDE2A9F26610026EA27 /* CreatePostViewController.swift in Sources */,
+				180E21C02AA0AA4A00B68F3C /* VideoCompositionWriter.swift in Sources */,
+				180E21BC2AA06AA000B68F3C /* SegmentedProgressView.swift in Sources */,
 				185185C42A9DF23C008A39CD /* SignUpViewController.swift in Sources */,
 				185185B22A9DE23E008A39CD /* SceneDelegate.swift in Sources */,
 				185185E82A9E5517008A39CD /* Ref.swift in Sources */,
+				180E21C42AA0E81800B68F3C /* PostApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +482,8 @@
 				DEVELOPMENT_TEAM = 4BBUSC332Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TikTokClone/Helpers/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "for camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "for mic";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
@@ -470,6 +512,8 @@
 				DEVELOPMENT_TEAM = 4BBUSC332Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TikTokClone/Helpers/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "for camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "for mic";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = MainTabBar;
