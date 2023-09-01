@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 import ProgressHUD
+import SDWebImage
 
 final class PostApi {
     
@@ -35,10 +36,10 @@ final class PostApi {
                         let values = ["creationDate": creadationDate,
                         "imageUrl": postImageUrl,
                         "videoUrl": videoUrlString,
-                        "descrotton": textView.text ?? "",
+                        "description": textView.text ?? "",
                         "likes": 0,
                         "views": 0,
-                        "comment Count": 0,
+                        "commentCount": 0,
                         "uid": uid] as [String: Any]
                         let postId = Ref().databaseRoot.child("Posts").childByAutoId()
                         postId.updateChildValues (values, withCompletionBlock: { err, ref in
@@ -54,9 +55,15 @@ final class PostApi {
                 })
             }
         }
+
     }
-    func uploadThumbnai1ImageToStorage() {
-        
+    func observePost (comletion: @escaping (Post) -> Void) {
+        Ref().databaseRoot.child("Posts").observe(.childAdded) { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPostVideo(dict: dict, key: snapshot.key)
+                comletion(newPost)
+            }
+        }
     }
     
     func uploadThumbnaiImageToStorage(selectedPhoto: UIImage?, completion: @escaping (String) -> ()) {
@@ -77,6 +84,42 @@ final class PostApi {
                     completion(postImageUrl)
                 })
             })
+        }
+    }
+    func observefeedPosts (completion: @escaping (Post) -> Void) {
+        Ref().databaseRoot.child("Posts").observeSingleEvent (of: .value) { snapshot in
+            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySnapshot.forEach { child in
+                if let dict = child.value as? [String: Any] {
+                    let post = Post.transformPostVideo(dict: dict, key: child.key)
+                    completion (post)
+                }
+            }
+        }
+    }
+    func observeSinglePost(postId id: String, completion: @escaping (Post) -> Void) {
+        Ref().databaseRoot.child("Posts").child(id) .observeSingleEvent (of: .value) { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPostVideo(dict: dict, key: snapshot.key)
+                completion (newPost)
+            }
+          
+        }
+    }
+   
+}
+
+
+extension UIImageView {
+    func loadImage(_ urlString: String?, onSuccess: ((UIImage) -> Void)? = nil) {
+        self.image = UIImage()
+        guard let string = urlString else {return}
+        guard let url = URL(string: string) else {return}
+            
+        self.sd_setImage(with: url) { image, error, type, url in
+            if onSuccess != nil, error == nil  {
+                onSuccess!(image!)
+            }
         }
     }
 }

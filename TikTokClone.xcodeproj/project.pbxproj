@@ -12,6 +12,14 @@
 		180E21C02AA0AA4A00B68F3C /* VideoCompositionWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21BF2AA0AA4A00B68F3C /* VideoCompositionWriter.swift */; };
 		180E21C22AA0B94600B68F3C /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21C12AA0B94600B68F3C /* SharePostViewController.swift */; };
 		180E21C42AA0E81800B68F3C /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E21C32AA0E81800B68F3C /* PostApi.swift */; };
+		18186E7A2AA19FEF007EC83F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E792AA19FEF007EC83F /* HomeViewController.swift */; };
+		18186E7D2AA1A023007EC83F /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E7C2AA1A023007EC83F /* HomeCollectionViewCell.swift */; };
+		18186E7F2AA1B038007EC83F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E7E2AA1B038007EC83F /* Post.swift */; };
+		18186E812AA1B293007EC83F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E802AA1B293007EC83F /* User.swift */; };
+		18186E842AA1B420007EC83F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 18186E832AA1B420007EC83F /* SDWebImage */; };
+		18186E862AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E852AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift */; };
+		18186E8A2AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E892AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift */; };
+		18186E8D2AA23045007EC83F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E8C2AA23045007EC83F /* DetailViewController.swift */; };
 		183903C92A9F76C1008B540F /* VideoClips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183903C82A9F76C1008B540F /* VideoClips.swift */; };
 		185185B02A9DE23E008A39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185185AF2A9DE23E008A39CD /* AppDelegate.swift */; };
 		185185B22A9DE23E008A39CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185185B12A9DE23E008A39CD /* SceneDelegate.swift */; };
@@ -43,6 +51,13 @@
 		180E21BF2AA0AA4A00B68F3C /* VideoCompositionWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCompositionWriter.swift; sourceTree = "<group>"; };
 		180E21C12AA0B94600B68F3C /* SharePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePostViewController.swift; sourceTree = "<group>"; };
 		180E21C32AA0E81800B68F3C /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
+		18186E792AA19FEF007EC83F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18186E7C2AA1A023007EC83F /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		18186E7E2AA1B038007EC83F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		18186E802AA1B293007EC83F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		18186E852AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		18186E892AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		18186E8C2AA23045007EC83F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		183903C82A9F76C1008B540F /* VideoClips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClips.swift; sourceTree = "<group>"; };
 		185185AC2A9DE23E008A39CD /* TikTokClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTokClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185185AF2A9DE23E008A39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +87,7 @@
 				185185D22A9E1218008A39CD /* FirebaseDatabase in Frameworks */,
 				185185D42A9E1218008A39CD /* FirebaseFirestore in Frameworks */,
 				185185CE2A9E1218008A39CD /* FirebaseAnalytics in Frameworks */,
+				18186E842AA1B420007EC83F /* SDWebImage in Frameworks */,
 				185185DB2A9E2FB4008A39CD /* ProgressHUD in Frameworks */,
 				185185D62A9E1218008A39CD /* FirebaseStorage in Frameworks */,
 				185185D02A9E1218008A39CD /* FirebaseAuth in Frameworks */,
@@ -89,10 +105,56 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		18186E782AA19FC2007EC83F /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				18186E7B2AA19FF5007EC83F /* Cell */,
+				18186E792AA19FEF007EC83F /* HomeViewController.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		18186E7B2AA19FF5007EC83F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				18186E7C2AA1A023007EC83F /* HomeCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		18186E872AA1F8C8007EC83F /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18186E8B2AA208F8007EC83F /* Cell */,
+				18186E882AA1F8D1007EC83F /* Views */,
+				18A01FDB2A9F13F40026EA27 /* ProfileViewController.swift */,
+				18186E8C2AA23045007EC83F /* DetailViewController.swift */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		18186E882AA1F8D1007EC83F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18186E852AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		18186E8B2AA208F8007EC83F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				18186E892AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		183903C72A9F76AA008B540F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				183903C82A9F76C1008B540F /* VideoClips.swift */,
+				18186E7E2AA1B038007EC83F /* Post.swift */,
+				18186E802AA1B293007EC83F /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,7 +285,8 @@
 		18A01FDA2A9F13DF0026EA27 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				18A01FDB2A9F13F40026EA27 /* ProfileViewController.swift */,
+				18186E782AA19FC2007EC83F /* HomeView */,
+				18186E872AA1F8C8007EC83F /* ProfileViewController */,
 				18A01FDD2A9F26610026EA27 /* CreatePostViewController.swift */,
 				180E21BD2AA0941000B68F3C /* PreviewCapturedViewController.swift */,
 				180E21C12AA0B94600B68F3C /* SharePostViewController.swift */,
@@ -254,6 +317,7 @@
 				185185D32A9E1218008A39CD /* FirebaseFirestore */,
 				185185D52A9E1218008A39CD /* FirebaseStorage */,
 				185185DA2A9E2FB4008A39CD /* ProgressHUD */,
+				18186E832AA1B420007EC83F /* SDWebImage */,
 			);
 			productName = TikTokClone;
 			productReference = 185185AC2A9DE23E008A39CD /* TikTokClone.app */;
@@ -286,6 +350,7 @@
 			packageReferences = (
 				185185CC2A9E1217008A39CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				185185D92A9E2FB4008A39CD /* XCRemoteSwiftPackageReference "ProgressHUD" */,
+				18186E822AA1B420007EC83F /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 185185AD2A9DE23E008A39CD /* Products */;
 			projectDirPath = "";
@@ -319,16 +384,23 @@
 				180E21C22AA0B94600B68F3C /* SharePostViewController.swift in Sources */,
 				185185B42A9DE23E008A39CD /* StartViewController.swift in Sources */,
 				183903C92A9F76C1008B540F /* VideoClips.swift in Sources */,
+				18186E7D2AA1A023007EC83F /* HomeCollectionViewCell.swift in Sources */,
 				185185DF2A9E385C008A39CD /* Api.swift in Sources */,
+				18186E7F2AA1B038007EC83F /* Post.swift in Sources */,
+				18186E862AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				18A01FDC2A9F13F40026EA27 /* ProfileViewController.swift in Sources */,
+				18186E7A2AA19FEF007EC83F /* HomeViewController.swift in Sources */,
 				185185E12A9E388F008A39CD /* UserApi.swift in Sources */,
 				180E21BE2AA0941000B68F3C /* PreviewCapturedViewController.swift in Sources */,
 				185185C92A9E0437008A39CD /* SignInViewController.swift in Sources */,
 				185185B02A9DE23E008A39CD /* AppDelegate.swift in Sources */,
 				185185E42A9E4E2C008A39CD /* StorageService.swift in Sources */,
 				18A01FDE2A9F26610026EA27 /* CreatePostViewController.swift in Sources */,
+				18186E8D2AA23045007EC83F /* DetailViewController.swift in Sources */,
 				180E21C02AA0AA4A00B68F3C /* VideoCompositionWriter.swift in Sources */,
 				180E21BC2AA06AA000B68F3C /* SegmentedProgressView.swift in Sources */,
+				18186E812AA1B293007EC83F /* User.swift in Sources */,
+				18186E8A2AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift in Sources */,
 				185185C42A9DF23C008A39CD /* SignUpViewController.swift in Sources */,
 				185185B22A9DE23E008A39CD /* SceneDelegate.swift in Sources */,
 				185185E82A9E5517008A39CD /* Ref.swift in Sources */,
@@ -556,6 +628,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		18186E822AA1B420007EC83F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		185185CC2A9E1217008A39CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -575,6 +655,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		18186E832AA1B420007EC83F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18186E822AA1B420007EC83F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		185185CD2A9E1218008A39CD /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 185185CC2A9E1217008A39CD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

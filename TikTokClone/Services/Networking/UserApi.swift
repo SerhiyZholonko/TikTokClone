@@ -63,6 +63,7 @@ final class UserApi {
             }
             
         }
+    
         
     }
     
@@ -74,4 +75,23 @@ final class UserApi {
             return
         }
     }
+    
+    func observeUser(withId uid: String, completion: @escaping (User) -> Void) {
+        Ref().databaseRoot.child("Users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUser(dict: dict, key: snapshot.key)
+                completion(user)
+            }
+        })
+    }
+    func observeProfileUser( completion: @escaping (User) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Ref().databaseRoot.child("Users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUser(dict: dict, key: snapshot.key)
+                completion(user)
+            }
+        })
+    }
+    
 }
