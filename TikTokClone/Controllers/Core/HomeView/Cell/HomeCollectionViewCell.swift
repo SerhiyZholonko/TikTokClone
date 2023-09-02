@@ -8,9 +8,15 @@
 import UIKit
 import AVFoundation
 
+protocol HomeCollectionViewCel1Delegate: AnyObject {
+    func goToProfileUserVC(userId: String)
+}
+
 class HomeCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Properties
+    
+    weak var delegate: HomeCollectionViewCel1Delegate?
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var postVideo: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -34,6 +40,11 @@ class HomeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         avatar.layer.cornerRadius = 55/2
+        let tapestureForAvatar = UITapGestureRecognizer(target: self, action:
+        #selector (avatarTouchUpInside))
+        avatar.isUserInteractionEnabled = true
+        avatar.addGestureRecognizer(tapestureForAvatar)
+        avatar.clipsToBounds = true
     }
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -86,5 +97,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         self.queuePlayer?.pause()
         self.queuePlayer?.seek(to: CMTime.init(seconds: 0, preferredTimescale: 1))
     }
-
+    @objc private func avatarTouchUpInside() {
+        if let id = user?.uid {
+            delegate?.goToProfileUserVC(userId: id)
+        }
+    }
 }

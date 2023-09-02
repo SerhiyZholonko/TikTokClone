@@ -20,6 +20,10 @@
 		18186E862AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E852AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift */; };
 		18186E8A2AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E892AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift */; };
 		18186E8D2AA23045007EC83F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18186E8C2AA23045007EC83F /* DetailViewController.swift */; };
+		1832EF662AA2F4EA0073D734 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832EF652AA2F4EA0073D734 /* PeopleTableViewController.swift */; };
+		1832EF6A2AA2F55D0073D734 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832EF692AA2F55D0073D734 /* PeopleTableViewCell.swift */; };
+		1832EF6C2AA31EB80073D734 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832EF6B2AA31EB80073D734 /* ProfileUserViewController.swift */; };
+		1832EF6E2AA33E990073D734 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832EF6D2AA33E990073D734 /* EditProfileViewController.swift */; };
 		183903C92A9F76C1008B540F /* VideoClips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183903C82A9F76C1008B540F /* VideoClips.swift */; };
 		185185B02A9DE23E008A39CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185185AF2A9DE23E008A39CD /* AppDelegate.swift */; };
 		185185B22A9DE23E008A39CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185185B12A9DE23E008A39CD /* SceneDelegate.swift */; };
@@ -58,6 +62,10 @@
 		18186E852AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		18186E892AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		18186E8C2AA23045007EC83F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1832EF652AA2F4EA0073D734 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
+		1832EF692AA2F55D0073D734 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
+		1832EF6B2AA31EB80073D734 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
+		1832EF6D2AA33E990073D734 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		183903C82A9F76C1008B540F /* VideoClips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoClips.swift; sourceTree = "<group>"; };
 		185185AC2A9DE23E008A39CD /* TikTokClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TikTokClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185185AF2A9DE23E008A39CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +153,24 @@
 			isa = PBXGroup;
 			children = (
 				18186E892AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1832EF672AA2F51C0073D734 /* PeopleTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1832EF682AA2F5440073D734 /* Cell */,
+				1832EF652AA2F4EA0073D734 /* PeopleTableViewController.swift */,
+				1832EF6B2AA31EB80073D734 /* ProfileUserViewController.swift */,
+			);
+			path = PeopleTableViewController;
+			sourceTree = "<group>";
+		};
+		1832EF682AA2F5440073D734 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1832EF692AA2F55D0073D734 /* PeopleTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -290,6 +316,8 @@
 				18A01FDD2A9F26610026EA27 /* CreatePostViewController.swift */,
 				180E21BD2AA0941000B68F3C /* PreviewCapturedViewController.swift */,
 				180E21C12AA0B94600B68F3C /* SharePostViewController.swift */,
+				1832EF6D2AA33E990073D734 /* EditProfileViewController.swift */,
+				1832EF672AA2F51C0073D734 /* PeopleTableViewController */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -385,9 +413,11 @@
 				185185B42A9DE23E008A39CD /* StartViewController.swift in Sources */,
 				183903C92A9F76C1008B540F /* VideoClips.swift in Sources */,
 				18186E7D2AA1A023007EC83F /* HomeCollectionViewCell.swift in Sources */,
+				1832EF662AA2F4EA0073D734 /* PeopleTableViewController.swift in Sources */,
 				185185DF2A9E385C008A39CD /* Api.swift in Sources */,
 				18186E7F2AA1B038007EC83F /* Post.swift in Sources */,
 				18186E862AA1F8C0007EC83F /* ProfileHeaderCollectionReusableView.swift in Sources */,
+				1832EF6A2AA2F55D0073D734 /* PeopleTableViewCell.swift in Sources */,
 				18A01FDC2A9F13F40026EA27 /* ProfileViewController.swift in Sources */,
 				18186E7A2AA19FEF007EC83F /* HomeViewController.swift in Sources */,
 				185185E12A9E388F008A39CD /* UserApi.swift in Sources */,
@@ -397,7 +427,9 @@
 				185185E42A9E4E2C008A39CD /* StorageService.swift in Sources */,
 				18A01FDE2A9F26610026EA27 /* CreatePostViewController.swift in Sources */,
 				18186E8D2AA23045007EC83F /* DetailViewController.swift in Sources */,
+				1832EF6C2AA31EB80073D734 /* ProfileUserViewController.swift in Sources */,
 				180E21C02AA0AA4A00B68F3C /* VideoCompositionWriter.swift in Sources */,
+				1832EF6E2AA33E990073D734 /* EditProfileViewController.swift in Sources */,
 				180E21BC2AA06AA000B68F3C /* SegmentedProgressView.swift in Sources */,
 				18186E812AA1B293007EC83F /* User.swift in Sources */,
 				18186E8A2AA1FC2E007EC83F /* PostProfileCollectionViewCell.swift in Sources */,

@@ -1,42 +1,31 @@
 //
-//  ProfileViewController.swift
+//  ProfileUserViewController.swift
 //  TikTokClone
 //
-//  Created by apple on 30.08.2023.
+//  Created by apple on 02.09.2023.
 //
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 
-class ProfileViewController: UIViewController {
-    //MARK: - Properties
+class ProfileUserViewController: UIViewController {
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     var user: User!
     var posts: [Post] = []
-    //MARK: - Livecycle
-    
+    var userId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
         fetchUser()
         fetchMyPosts()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Profile_DetailSegue" {
-            let detailVC = segue.destination as! DetailViewController
-            let postId = sender as! String
-            detailVC.postId = postId
-        }
-    }
     //MARK: - Functions
     func fetchMyPosts() {
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-            
-        Ref().databaseRoot.child("User-Posts").child(uid).observe(.childAdded) { snapshot in
+        Ref().databaseRoot.child("User-Posts").child(userId).observe(.childAdded) { snapshot in
             Api.Post.observeSinglePost(postId: snapshot.key) { post in
                 self.posts.append(post)
                 self.collectionView.reloadData()
@@ -44,15 +33,25 @@ class ProfileViewController: UIViewController {
         }
     }
     func fetchUser() {
-        Api.User.observeProfileUser { user in
+        Api.User.observeUser(withId: userId) { user in
             self.user = user
             self.collectionView.reloadData()
         }
+        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileUser_DetailSegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postid = sender as! String
+            detailVC.postId = postid
+        }
+    }
+
 }
 
-extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+//MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
+extension ProfileUserViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -82,21 +81,12 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = collectionView.frame.size
-        return CGSize(width: size.width / 3, height: size.height / 3)
-    }
-    
-    @IBAction func editProfileDidTapped(_ sender: Any) {
-        let storyboard = UIStoryboard (name: "MainTabBar", bundle: nil)
-        let editvc = storyboard.instantiateViewController (withIdentifier: "EditProfileViewController") as! EditProfileViewController
-        self.navigationController?.pushViewController(editvc,animated:true)
+        return CGSize(width: size.width / 3 - 30, height: size.height / 3)
     }
 }
 
-
-extension ProfileViewController: PostProfileCollectionViewCellDelegate {
+extension ProfileUserViewController: PostProfileCollectionViewCellDelegate {
     func goToDetailVC(postid: String) {
-        performSegue(withIdentifier: "Profile_DetailSegue", sender: postid)
+        performSegue(withIdentifier: "ProfileUser_DetailSegue", sender: postid)
     }
-    
-    
 }

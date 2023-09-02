@@ -63,11 +63,11 @@ final class UserApi {
             }
             
         }
-    
+        
         
     }
     
-    func signOut() {
+    func logOut() {
         do {
             try Auth.auth().signOut()
         } catch let error {
@@ -93,5 +93,49 @@ final class UserApi {
             }
         })
     }
-    
+    func observeUsers (completion: @escaping (User) -> Void) {
+        Ref().databaseRoot.child("Users").observe(.childAdded) { snapshot in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUser(dict: dict, key: snapshot.key)
+                completion(user)
+            }
+        }
+    }
+    func saveUserProfile(dict: Dictionary<String, Any>, onSuccess: @escaping() -> Void, onError:
+                         @escaping(_ errorMessage: String) -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Ref().databaseRoot.child("Users").child(uid).updateChildValues(dict) { error, dataRef in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            onSuccess()
+        }
+        
+    }
+    func deleteUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let storage = Ref().storageRoot
+        let ref = Ref().databaseRoot
+        
+        ref.child("Users").child(uid).removeValue { error, ref in
+            if error != nil {
+                ProgressHUD.showError(error?.localizedDescription)
+            }
+            
+        }
+        Auth.auth().currentUser?.delete { error in
+            if error != nil {
+                ProgressHUD.showError(error?.localizedDescription)
+            }
+        }
+        let profileRef = storage.child("profile").child(uid)
+        profileRef.delete { error in
+            if error != nil {
+                ProgressHUD.showError(error?.localizedDescription)
+            } else {
+                ProgressHUD.showSuccess()
+            }
+        }
+    }
 }
